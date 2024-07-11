@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rolepermissions',
-    'users'
+    'users',
+    'payments',
 ]
 
 AUTH_USER_MODEL = 'users.User'
@@ -126,3 +127,5 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+AUTHORIZE_TRANSFER_ENDPOINT = "https://run.mocky.io/v3/982c6f8f-6f8f-6c14-445d-be04-a08db4c8813b"
