@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'rolepermissions',
     'users',
     'payments',
+    'django_q'
 ]
 
 AUTH_USER_MODEL = 'users.User'
@@ -128,4 +129,12 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-AUTHORIZE_TRANSFER_ENDPOINT = "https://run.mocky.io/v3/982c6f8f-6f8f-6c14-445d-be04-a08db4c8813b"
+AUTHORIZE_TRANSFER_ENDPOINT = "https://run.mocky.io/v3/54dc2cf1-3add-45b5-b5a9-6bf7e7f1f4a6"
+
+Q_CLUSTER = {
+    'name': 'Django',
+    'workers': 4,
+    'timeout': 60,
+    'retry':300,
+    'orm': 'default'
+}

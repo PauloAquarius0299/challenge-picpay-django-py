@@ -7,6 +7,8 @@ from django.db import transaction as django_transaction
 import requests
 from django.conf import settings
 from .models import Transactions
+from django_q.tasks import async_task
+from .tasks import send_notification
 
 payments_router = Router() 
 
@@ -41,4 +43,5 @@ def transition(request, transaction: TransactionSchema):
         if response.get('status') != 'authorize':
             raise Exception()
     
+    async_task(send_notification, payer.first_name, payee.first_name, transation_amount)
     return 200, {'transaction_id': 1}
